@@ -1,0 +1,137 @@
+
+<div class="row">
+    <input style="float: right" class="ui white submit button" type="button" onclick="window.location.href='/createbook'" value="Create Book">
+    <div class="column">
+        <form class="ui form middle aligned center aligned">
+            <label>Filter by Gender</label>
+            <select name="category" id="category" onchange="this.form.submit()">
+                <option value="">category</option>
+                {{#each categories}}
+                    <option onchange="this.form.submit()" value={{this.id}}>{{this.type}}</option>
+                {{/each}}
+            </select>
+        </form>
+    </div>
+    <div class="column">
+        <form class="ui form middle aligned center aligned">
+            <label>Filter by Gender</label>
+            <select name="user" id="category" onchange="this.form.submit()">
+                <option value="">Author</option>
+                {{#each users}}
+                    <option onchange="this.form.submit()" value={{this.id}}>{{this.name}}</option>
+                {{/each}}
+            </select>
+        </form>
+    </div>
+    <div class="column">
+        </br>
+        <form class="ui form middle aligned center aligned">
+            <label>Filter by book title</label>
+            <div class="ui left icon input">
+                <input onchange="this.form.submit()" type="text" name="title" placeholder="Book title" value={{name}}>
+                <i class="book icon"></i>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+
+
+
+{{#if filteredBooks }}
+    <div class="row">
+        <div class="show">
+            <h2>All Books</h2>
+            <table class="ui celled orange table">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Year</th>
+                    <th>Category</th>
+                    <th>Rating</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each filteredBooks}}
+                    <tr>
+                        <td class="ui"><a href="/book/{{this.id}}">{{this.title}}</a></td>
+                        <td>{{this.author}}</td>
+                        <td>{{this.publisher}}</td>
+                        <td>{{this.publishingYear}}</td>
+                        <td>{{this.type}}</td>
+                        <td>{{this.rating}}</td>
+                        <td>
+                            <input class="ui white submit button" type="button"
+                                   onclick="window.location.href='/book/update/{{id}}'" value="Update">
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+    </div>
+
+{{else}}
+    <div class="row">
+        <div class="show">
+            <h2>All Books</h2>
+            <table class="ui celled orange table">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Year</th>
+                    <th>Category</th>
+                    <th>Rating</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each books}}
+                    <tr>
+                        <td class="ui"><a href="/book/{{this.id}}">{{this.title}}</a></td>
+                        <td>{{this.author}}</td>
+                        <td>{{this.publisher}}</td>
+                        <td>{{this.publishingYear}}</td>
+                        <td>{{this.type}}</td>
+                        <td>{{this.rating}}</td>
+                        <td>
+                        <input class="ui white submit button" type="button"
+                               onclick="window.location.href='/book/update/{{id}}'" value="Update">
+                    </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+    </div>
+{{/if}}

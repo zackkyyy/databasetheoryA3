@@ -1,0 +1,110 @@
+<div class="row">
+    <input style="float: right" class="ui white submit button" type="button" onclick="window.location.href='/createuser'" value="Create User">
+    <div class="column">
+        <form class="ui form middle aligned center aligned">
+            <label>Filter by Gender</label>
+            <select class="ui search dropdown" name="gender" id="gender" onchange="this.form.submit()">
+                <option value="">Gender</option>
+                {{#each genders}}
+                    <option onchange="this.form.submit()" value={{this.id}}>{{this.type}}</option>
+                {{/each}}
+            </select>
+        </form>
+    </div>
+    <div class="column">
+        </br>
+        <form class="ui form middle aligned center aligned">
+            <label>Filter by name</label>
+            <div class="ui left icon input">
+                <input onchange="this.form.submit()" type="text" name="name" placeholder="First Name" value={{name}}>
+                <i class="users icon"></i>
+            </div>
+        </form>
+    </div>
+</div>
+
+{{#if filteredUsers }}
+    <div class="row">
+        <div class="show">
+            <h2>All users</h2>
+            <table class="ui celled orange table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>age</th>
+                    <th>Gender</th>
+                    <th>Number of books</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each filteredUsers}}
+                    <tr>
+                        <td data-label="Name"><a href="/user/{{this.id}}">{{this.name}}</a></td>
+                        <td data-label="Age">{{this.age}}</td>
+                        <td data-label="Job">{{this.gender}}</td>
+                        <td data-label="Job">{{this.nrOfBooks}}</td>
+
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            <div class="row">
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+            </div>
+        </div>
+    </div>
+
+{{else}}
+    <div class="row">
+        <div class="show">
+            <h2>All users</h2>
+            <table class="ui celled orange table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>age</th>
+                    <th>Gender</th>
+                    <th>Number of books</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each users}}
+                    <tr>
+                        <td data-label="Name"><a href="/user/{{this.id}}">{{this.name}}</a></td>
+                        <td data-label="Age">{{this.age}}</td>
+                        <td data-label="Job">{{this.gender}}</td>
+                        <td data-label="Job">{{this.nrOfBooks}}</td>
+                        <td>
+                            <input class="ui white submit button" type="button"
+                                   onclick="window.location.href='/user/update/{{id}}'" value="Update">
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+            <div class="row">
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+                </br>
+            </div>
+        </div>
+    </div>
+
+{{/if}}

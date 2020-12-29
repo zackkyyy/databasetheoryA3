@@ -1,0 +1,82 @@
+{{#if user }}
+    <input style="float: right" class="ui white submit button" type="button"
+           onclick="window.location.href='/createbook'" value="Create Book">
+    <div class="content">
+        <form class="ui middle aligned center aligned grid" method="post">
+            <div class="row">
+                {{#each user }}
+                    <div class="ui card" style="margin: 15px">
+                        <div class="content">
+                            <div class="header">{{name}}</div>
+                        </div>
+                        <div class="content">
+                            <h4 class="ui sub header"> Age : {{age}}</h4>
+                            <h4 class="ui sub header"> Gender : {{gender}}</h4>
+                            <h4 class="ui sub header"> Number of books : {{nrOfBooks}}</h4>
+
+                            </br>
+                            </br>
+                            <div class="row">
+                                <button formaction="/user/delete/{{id}}" type="submit"
+                                        class="ui red basic submit button"
+                                >Delete
+                                </button>
+                                <input class="ui black basic submit button" type="button"
+                                       onclick="window.location.href='/user/update/{{id}}'" value="Update">
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </form>
+    </div>
+{{else}}
+    <h1 class="error"> There is no user with such user Id</h1>
+{{/if}}
+
+{{#if books }}
+    <div class="row">
+        <div>
+            <h2>Books by this user</h2>
+        </div>
+        {{#each books}}
+            <div class="column">
+
+            </div>
+            <div class="ui card" style="margin: 15px">
+                <div class="content">
+                    <div class="header"><a style="color: black" href="/book/{{id}}">{{title}}</a></div>
+                </div>
+                <div class="content">
+                    <h4 class="ui sub header">{{type}}</h4>
+                    <div class="ui small feed">
+                        <div class="event">
+                            <div class="content">
+                                <div class="summary">
+                                    Published by {{publisher}} in {{publishingYear}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="event">
+                            <div class="content">
+                                <div class="summary">
+                                    Rating: {{rating}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input class="ui orange basic submit button" type="button"
+                           onclick="window.location.href='/book/{{id}}'" value="View">
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+
+{{else}}
+    <div class="content">
+        <div class="row">
+            This user has no books
+        </div>
+    </div>
+{{/if}}

@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="show">
+        <h2>All users</h2>
+        <table class="ui celled orange table">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>age</th>
+                <th>Gender</th>
+                <th>Number of books</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each users}}
+                <tr>
+                    <td data-label="Name"><a href="/user/{{this.id}}">{{this.name}}</a></td>
+                    <td data-label="Age">{{this.age}}</td>
+                    <td data-label="Job">{{this.gender}}</td>
+                    <td data-label="books">{{this.nrOfBooks}}</td>
+
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+        <!--     Render Books    <-->
+        <h2>All Books</h2>
+        <table class="ui celled orange table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Publisher</th>
+                <th>Year</th>
+                <th>Category</th>
+                <th>Rating</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each books}}
+                <tr>
+                    <td class="ui"><a href="/book/{{this.id}}">{{this.title}}</a></td>
+                    <td>{{this.author}}</td>
+                    <td>{{this.publisher}}</td>
+                    <td>{{this.publishingYear}}</td>
+                    <td>{{this.type}}</td>
+                    <td>{{this.rating}}</td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

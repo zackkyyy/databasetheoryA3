@@ -1,0 +1,56 @@
+<form class="ui middle aligned center aligned grid" method="post" action="/book">
+    <div class="column">
+        <h2 class="ui header">
+            <div class="ui orange  header">
+                Create book
+            </div>
+        </h2>
+        <div class="ui stacked piled segment">
+            <select name="author_id" id="author_id" class="ui selection dropdown">
+                {{#each users}}
+                    <option value={{this.id}}>{{this.name}}</option>
+                {{/each}}
+            </select>
+            <div class="field">
+                </br>
+                <div class="ui left icon input">
+                    <input required type="text" name="title" placeholder="Title">
+                    <i class="book icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                </br>
+                <div class="ui left icon input">
+                    <input required type="text" name="publisher" placeholder="publisher">
+                    <i class="book icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                </br>
+                <div class="ui left icon input">
+                    <input required type="number" name="publishingYear" placeholder="year">
+                    <i class="calendar alternate icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                </br>
+                <select name="book_type_id" id="category" class="ui selection dropdown">
+                    {{#each categories}}
+                        <option value={{this.id}}>{{this.type}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            <div class="field">
+                </br>
+                <div class="ui left icon input">
+                    <input required type="number" name="rating" placeholder="Rating">
+                    <i class="chart line icon"></i>
+
+                </div>
+            </div>
+            <button class="ui orange submit button">Create</button>
+        </div>
+        <div>
+        </div>
+    </div>
+</form>

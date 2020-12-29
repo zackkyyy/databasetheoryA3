@@ -1,0 +1,38 @@
+{{#each book }}
+
+    <form style="margin: 150px;" class="ui form middle aligned center aligned" method="post" action="/book/update/{{id}}">
+        <h2 class="ui header">
+            <div class="ui orange  header">
+                Update book
+            </div>
+        </h2>
+        <div class="field row">
+            <label>Title</label>
+            <input type="text" name="title" placeholder="title" value={{title}}>
+        </div>
+        <div class="field row">
+            <label>Author</label>
+            <input disabled name="author_id" readonly placeholder="Gender" value={{author}}>
+        </div>
+        <div class="field row">
+            <label>Category</label>
+            <input disabled name="book_type_id" readonly placeholder="Category" value={{type}}>
+        </div>
+        <div class="field row">
+            <label>Rating</label>
+            <input type="number" name="rating" placeholder="rating" value={{rating}}>
+        </div>
+        <div class="field row">
+            <label>Publisher</label>
+            <input type="text" name="publisher" placeholder="age" value={{publisher}}>
+        </div>
+        <div class="field row">
+            <label>Year</label>
+            <input type="number" name="publishingYear" placeholder="year" value={{publishingYear}}>
+        </div>
+
+{{/each}}
+
+    <button class="ui button" type="submit">Update</button>
+</form>
+

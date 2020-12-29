@@ -1,0 +1,40 @@
+<form class="ui middle aligned center aligned grid" method="post" action="/user">
+    <div class="column">
+        <h2 class="ui header">
+            <div class="ui orange  header">
+                Create User
+            </div>
+        </h2>
+        <div class="ui stacked piled  segment">
+            <div class="field">
+                </br>
+                <div class="ui left icon input">
+                    <input type="text" required name="name" placeholder="Name">
+                    <i class="users icon"></i>
+                </div>
+            </div>
+
+            <div class="field">
+                </br>
+                <div class="ui left icon input">
+                    <input type="number" required name="age" placeholder="Age">
+                    <i class="calendar alternate icon"></i>
+                </div>
+            </div>
+
+            <div class="field">
+                </br>
+                <select name="gender" id="gender" class="ui selection dropdown">
+                {{#each genders}}
+                <option value={{this.id}}>{{this.type}}</option>
+                {{/each}}
+            </select>
+            </div>
+            </br>
+
+            <button class="ui orange submit button">Create</button>
+        </div>
+        <div>
+        </div>
+    </div>
+</form>
