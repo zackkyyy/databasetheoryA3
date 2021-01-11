@@ -5,25 +5,26 @@
         <form class="ui middle aligned center aligned grid" method="post">
             <div class="row">
                 {{#each user }}
-                    <div class="ui card" style="margin: 15px">
-                        <div class="content">
-                            <div class="header">{{name}}</div>
+                    <div class="ui card">
+                        <div class="image">
+                            <img src="../images/randomuser.png">
                         </div>
                         <div class="content">
-                            <h4 class="ui sub header"> Age : {{age}}</h4>
-                            <h4 class="ui sub header"> Gender : {{gender}}</h4>
-                            <h4 class="ui sub header"> Number of books : {{nrOfBooks}}</h4>
-
-                            </br>
-                            </br>
-                            <div class="row">
-                                <button formaction="/user/delete/{{id}}" type="submit"
-                                        class="ui red basic submit button"
-                                >Delete
-                                </button>
-                                <input class="ui black basic submit button" type="button"
-                                       onclick="window.location.href='/user/update/{{id}}'" value="Update">
+                            <a class="header">{{name}}</a>
+                            <div class="meta">
+                                <span class="date">{{age}}, {{gender}}</span>
                             </div>
+                            <div class="description">
+                                {{name}} has {{nrOfBooks}} books.
+                            </div>
+                        </div>
+                        <div class="extra content">
+                            <button formaction="/user/delete/{{id}}" type="submit"
+                                    class="ui red basic submit button"
+                            >Delete
+                            </button>
+                            <input class="ui black basic submit button" type="button"
+                                   onclick="window.location.href='/user/update/{{id}}'" value="Update">
                         </div>
                     </div>
                 {{/each}}
@@ -39,37 +40,40 @@
         <div>
             <h2>Books by this user</h2>
         </div>
-        {{#each books}}
-            <div class="column">
 
-            </div>
-            <div class="ui card" style="margin: 15px">
-                <div class="content">
-                    <div class="header"><a style="color: black" href="/book/{{id}}">{{title}}</a></div>
-                </div>
-                <div class="content">
-                    <h4 class="ui sub header">{{type}}</h4>
-                    <div class="ui small feed">
-                        <div class="event">
-                            <div class="content">
-                                <div class="summary">
-                                    Published by {{publisher}} in {{publishingYear}}
-                                </div>
-                            </div>
+        <div class="ui grid">
+            {{#each books}}
+
+                <div class="four wide column">
+                    <div class="ui card" style="margin: 15px">
+                        <div class="content">
+                            <div class="header"><a style="color: black" href="/book/{{id}}">{{title}}</a></div>
                         </div>
-                        <div class="event">
-                            <div class="content">
-                                <div class="summary">
-                                    Rating: {{rating}}
+                        <div class="content">
+                            <h4 class="ui sub header">{{type}}</h4>
+                            <div class="ui small feed">
+                                <div class="event">
+                                    <div class="content">
+                                        <div class="summary">
+                                            Published by {{publisher}} in {{publishingYear}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="event">
+                                    <div class="content">
+                                        <div class="summary">
+                                            Rating: {{rating}}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+                            <input class="ui orange basic submit button" type="button"
+                                   onclick="window.location.href='/book/{{id}}'" value="View">
                         </div>
                     </div>
-                    <input class="ui orange basic submit button" type="button"
-                           onclick="window.location.href='/book/{{id}}'" value="View">
                 </div>
-            </div>
-        {{/each}}
+            {{/each}}
+        </div>
     </div>
 
 
